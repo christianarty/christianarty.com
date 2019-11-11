@@ -1,0 +1,31 @@
+@import "./theme/colors";
+
+.navbar {
+  display: flex;
+  background-color: $header-background;
+  padding: 0.5rem 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.navlinks {
+  display: flex;
+  a{
+    padding: 10px;
+  }
+
+}
+
+
+.link {
+  color: $emphasis-color;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color:$hover-color;
+    font-size: 2rem;
+    // transform: scale(1.1rem);
+  }
+}
