@@ -1,0 +1,54 @@
+---
+title: About Environments...
+slug: about_environments
+date: 2019-07-15
+---
+
+Have you ever tried to remove a program and later find remnants still around on your computer? Have you ever been scavenging through your computer, trying to find this one path for that one program? Have you ever go out of your way to go to a Chick-fil-a and find out it is a Sunday? Alright, maybe not everyone on the last point, but regardless, it's infuriating. Now, Python on the other hand, is a culprit for being one confusing son of a chicken to install and uninstall. Python, however a great language, installing it is like that pesky bug that just flies buzzes around you with no end, annoying you until you finally get up and swat it down, or free it outside... whatever floats your boat.
+
+Ever since I started learning to program with Python, I've always thought, _Lemme just go to the official site and download the program onto my computer_. I mean the logic behind it is sound. Going straight to the source is the best idea right? For most, it's sufficient. But for some where a certain package needs to know where their install directory is and/or one of your beloved applications uses a legacy version of Python, installing Python this way is a pain in the :peach:. This method can become one large headache. I think this photo I link below describes what this is like:
+
+![scrambled image about python environment from xkcd](https://imgs.xkcd.com/comics/python_environment.png "My life with python... credit to XKCD")
+
+Anyways, the point of this blog post is to expose the benefit of environments. Environments are great and not to complicated, once you get to know them. Environments allow you to separate between your normal preferences and your work preferences. Similar to how (hopefully) the home and workplace are separate. At home, you have your ideal setup the way you like it, the potted plant in the corner, the christmas tree that's been up for most of the year, you know the comfortable environment. Where at work, the environment is totally different and hopefully no year-long christmas tree.So, Christian get with the point already. How do we solve the python installation issue? A solution to this would be **pyenv**, a python version manager. Similar to Python's pip, instead of organizing your python site-packages, this keeps your python installation organized like a sort-of Python giftbox and within that giftbox are many other Python giftboxes, with Anaconda Python or Python 2.7.15, etc.
+
+> Friend: Hey what did you get for Christmas  
+> Me: It's great! I got a bunch of python installat--  
+> Friend: :sleeping:  
+> _I guess I'm the only one who cares...sigh_
+
+![terminal output for pyenv, credited to pyenv github](https://raw.githubusercontent.com/pyenv/pyenv/master/terminal_output.png "Terminal output")
+
+## About Pyenv
+
+Pyenv is a terminal-based application. I won't go into details about installing it as the author made a very through installation guide and installer for it. I'll refer the github link ![here](https://github.com/pyenv/pyenv). Pyenv is based off all shell scripts, so pyenv itself is not attached to Python; it has a single purpose:managing your python versions. Additionally, once it has been installed, you can start installing other versions of Python immediately.
+
+_Note: I use a UNIX/Linux-based machine, so all of my commands will be UNIX/Linux based. Sorry for all the Windows people out there :(. But if you want to know about pyenv for windows, there is a fork of this program for windows. I'm not too familar with it, but here's the ![link](https://github.com/pyenv-win/pyenv-win), if you're interested!_
+
+`$ pyenv install -l`
+
+The above command will list ALL of the available python versions to install. Pypy, Miniconda, Jython, CPython (i.e 2.7,3.5,etc.), and many more. To install, lets say Python (CPython based) version 3.1.1, you would just run this command below in your terminal
+
+`$ pyenv install 3.1.1`
+
+To check the installed versions on your machine, run the command below:
+
+`$ pyenv versions`
+
+This command will list all the versions you have installed on to your computer. Don't worry they are all organized and independently packages into their proper folder. To see the actual version folder (i.e 3.5.3), it would be contained in the **.pyenv** folder in your home directory (~/.pyenv/versions/3.5.3/). As you can also see, this command shows which version of python is active at the moment, denoted with an asterisk.
+
+## How to choose the Python Version
+
+Now that you've installed all the python versions that you're interested in, how do we specify which one you'd like to use. It's easy! In the terminal, Pyenv will look for an environment variable (run `printenv` to look at all your environment variables) called `PYTHON_VERSION`. You can run pyenv shell to change/initialize that variable. However, what if you want a specific folder to run a specific version of python. This has this covered as well!
+
+Pyenv will also look for a file called .python-version. You can create the file, specifying only the version you'd like to use for that folder, or you can run:
+
+`pyenv local <python version>`
+
+This will effectively do what I recently explained in one step. Pyenv will keep searching the parent directories for this file, so if you have 3 subfolders, and none of them have this file but the root folder, pyenv will utilize that specified python version. Pretty neat!
+
+I can go on and on about this program and how useful it is, but that would take away from the very well-written documentation provided by the authors themselves. The only other note I wanted to point out was that if you aren't experiencing this issue for your python installation, it might happen in the future. For me at least, when I was playing around with Numpy, scikit-learn, and matplotlib, I had just the regular installation of python. It was just fine for me until I got a tedious error message with matplotlib about my python installation wasn't configured correctly and pushed me to use the Anaconda distribution, thus leading me to another rabbit hole with configuring my python installation. (Yes, I know there is a way around it :neckbeard:, but still headaches nonetheless)
+
+Whenever you have to install something new, particularly if it's development/programming related, my word of advice is to check if there is a program that manages versions for you or do some research to see if the version control is as tedious as Python's, like Ruby and rbenv.
+
+Thanks for reading and making it to the bottom. If you have any questions or concerns, feel free to leave a comment or shoot me an email by clicking the mail icon below, I'll respond pretty quick!

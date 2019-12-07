@@ -1,41 +1,64 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
+import { Link } from "gatsby"
 import React from "react"
-import styles from "../../styles/header.module.scss"
+import useSiteMetadata from "../../hooks/useSiteMetadata"
+import { css } from "@emotion/core"
+import styled from "@emotion/styled"
+import { useTheme } from "emotion-theming"
+
+const NavLink = styled(Link)`
+  color: ${props => props.theme.colors.secondary};
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  margin: 0 0.5rem 0 0;
+  padding: 0;
+  &.current-link {
+    border-bottom: 2px solid #222;
+  }
+  &:hover {
+    border-bottom: 2px solid #eee;
+  }
+`
+const HomeLink = styled(NavLink)`
+  padding: 0;
+  font-weight: bold;
+`
 
 const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const { title } = useSiteMetadata()
+  const theme = useTheme()
 
   return (
-    <nav className={styles.navbar}>
+    <div
+      css={css`
+        display: flex;
+        background-color: ${theme.colors.primary};
+        padding: 1rem 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+        max-height: 100px;
+        border-bottom: 1px solid #aaa;
+      `}
+    >
       <div>
-        <h1 style={{margin:0}}>
-          <Link to="/" className={styles.link}>
-            {data.site.siteMetadata.title}
-          </Link>
-        </h1>
+        <HomeLink to="/">{title}</HomeLink>
       </div>
-      <div className={styles.navlinks}>
-        <h3 style={{margin:0}}>
-          <Link to="/" className={styles.link}>
-            About
-          </Link>
-        </h3>
-        <h3 style={{margin:0}}>
-          <Link to="/" className={styles.link}>
-            Projects
-          </Link>
-        </h3>
-      </div>
-    </nav>
+      <nav
+        css={css`
+          display: flex;
+          margin-top: 0;
+        `}
+      >
+        <NavLink to="/" activeClassName="current-link">
+          Home
+        </NavLink>
+        <NavLink to="/about" activeClassName="current-link">
+          About
+        </NavLink>
+        <NavLink to="/projects" activeClassName="current-link">
+          Projects
+        </NavLink>
+      </nav>
+    </div>
   )
 }
 
