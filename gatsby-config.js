@@ -15,12 +15,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        defaultLayouts: {
+          default: `${__dirname}/src/templates/PageLayout.js`,
+        },
         remarkPlugins: [emoji],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1035,
+              maxWidth: 400,
               sizeByPixelDensity: true,
             },
           },
@@ -38,7 +41,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/data/posts`,
+        path: `${__dirname}/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
       },
     },
     {

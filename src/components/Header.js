@@ -1,11 +1,13 @@
 import { Link } from "gatsby"
 import React from "react"
-import useSiteMetadata from "../../hooks/useSiteMetadata"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { useTheme } from "emotion-theming"
+import Img from "gatsby-image"
+import useHero from "../hooks/useHero"
 
 const NavLink = styled(Link)`
+  text-shadow: none;
   color: ${props => props.theme.colors.secondary};
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -18,33 +20,29 @@ const NavLink = styled(Link)`
     border-bottom: 2px solid #eee;
   }
 `
-const HomeLink = styled(NavLink)`
-  padding: 0;
-  font-weight: bold;
+
+const StyledHeader = styled("div")`
+  display: flex;
+  background-color: ${props => props.theme.colors.primary};
+  padding: 1rem 0.5rem;
+  align-items: flex-start;
+  border-bottom: 1px solid #aaa;
+  transition: clip-path 0.2s ease-in-out;
+  height: ${props => (props.home ? "40vh" : null)};
+  max-height: ${props => (props.home ? "40vh" : "100px")};
+  clip-path: ${props =>
+    props.home ? "polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0 75%)" : null};
 `
 
-const Header = () => {
-  const { title } = useSiteMetadata()
+const Header = ({ home }) => {
   const theme = useTheme()
-
+  const image = useHero()
   return (
-    <div
-      css={css`
-        display: flex;
-        background-color: ${theme.colors.primary};
-        padding: 1rem 0.5rem;
-        align-items: center;
-        justify-content: space-between;
-        max-height: 100px;
-        border-bottom: 1px solid #aaa;
-      `}
-    >
-      <div>
-        <HomeLink to="/">{title}</HomeLink>
-      </div>
+    <StyledHeader home={home} theme={theme}>
+      <Img fluid={image} />
       <nav
         css={css`
-          display: flex;
+          align-content: flex-start;
           margin-top: 0;
         `}
       >
@@ -58,7 +56,7 @@ const Header = () => {
           Projects
         </NavLink>
       </nav>
-    </div>
+    </StyledHeader>
   )
 }
 

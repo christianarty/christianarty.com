@@ -1,12 +1,16 @@
 import React from "react"
+import { Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import PageLayout from "../templates/PageLayout"
 
 const BlogPostLayout = ({ data: { mdx } }) => {
   return (
-    <div>
+    <PageLayout>
       <h1>{mdx.frontmatter.title}</h1>
       <MDXRenderer>{mdx.body}</MDXRenderer>
-    </div>
+      <hr />
+      <Link to="/">&larr; Back to home</Link>
+    </PageLayout>
   )
 }
 
