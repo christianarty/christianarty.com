@@ -11,7 +11,7 @@ const useHero = () => {
     }
   `)
 
-  return data.image.fluid
+  return data.image
 }
 
 export default useHero

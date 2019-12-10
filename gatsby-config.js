@@ -5,6 +5,8 @@ module.exports = {
     title: `Christian Arty`,
     description: `My Personal Blog`,
     author: `Christian Arty`,
+    github: "https://github.com/christianarty",
+    twitter: "https://twitter.com/christian_arty",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

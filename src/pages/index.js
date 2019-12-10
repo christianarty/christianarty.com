@@ -7,7 +7,7 @@ const IndexPage = props => {
 
   return (
     <PageLayout home>
-      <h1> These are my blog posts</h1>
+      <h1 style={{ textAlign: "center" }}> Welcome To My Blog!</h1>
       {posts.map((post, index) => (
         <PostPreview key={index} post={post} />
       ))}
