@@ -28,18 +28,24 @@ const BlogPostLayout = ({ data: { mdx }, pageContext: context }) => {
       >
         {/* TODO: Style the previous and next posts to have the tag and name on top of one another */}
         {prev && (
-          <>
-            <div css={css``}>
-              <Link to={prev.frontmatter.slug}>
-                &larr; {prev.frontmatter.title}
-              </Link>
-            </div>
-          </>
+          <Link
+            css={css`
+              margin-top: 0;
+            `}
+            to={prev.frontmatter.slug}
+          >
+            &larr; {prev.frontmatter.title}
+          </Link>
         )}
 
         <Link to="/"> Back to home</Link>
         {next && (
-          <Link to={next.frontmatter.slug}>
+          <Link
+            css={css`
+              margin-top: 0;
+            `}
+            to={next.frontmatter.slug}
+          >
             {next.frontmatter.title} &rarr;
           </Link>
         )}
