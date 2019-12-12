@@ -38,7 +38,15 @@ const BlogPostLayout = ({ data: { mdx }, pageContext: context }) => {
           </Link>
         )}
 
-        <Link to="/"> Back to home</Link>
+        <Link
+          css={css`
+            margin-top: 0;
+          `}
+          to="/"
+        >
+          {" "}
+          Back to home
+        </Link>
         {next && (
           <Link
             css={css`
