@@ -4,7 +4,7 @@ const useHero = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
       image: imageSharp(fluid: { originalName: { eq: "hero.jpg" } }) {
-        fluid(fit: COVER, maxWidth: 700, maxHeight: 400) {
+        fluid {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

@@ -3,16 +3,17 @@ import React from "react"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { useTheme } from "emotion-theming"
-import Img from "gatsby-image"
 import useHero from "../hooks/useHero"
+import BackgroundImage from "gatsby-background-image"
+import ConditionalWrapper from "./ConditionalWrapper"
 
 const NavLink = styled(Link)`
   text-shadow: none;
   color: ${props => props.theme.colors.secondary};
   text-decoration: none;
   transition: all 0.1s ease-in-out;
-  margin: 0 0.5rem 0 0;
-  padding: 0 0 0.15rem 0;
+  margin: 0 1rem 0 0;
+  padding: 1rem 0rem 0.15rem 0;
   &.current-link {
     border-bottom: 2px solid #fff;
   }
@@ -20,11 +21,15 @@ const NavLink = styled(Link)`
     font-weight: 500;
   }
 `
-
+const Overlay = styled("div")`
+  background-image: linear-gradient(to top, #00a0eecc 2rem, #ffffff00);
+  margin-top: 0;
+  height: 100%;
+`
 const StyledHeader = styled("div")`
   display: flex;
   background-color: ${props => props.theme.colors.primary};
-  padding: 1rem 0.5rem;
+  padding: 0;
   align-items: flex-start;
   justify-content: space-between;
   border-bottom: 1px solid #aaa;
@@ -35,28 +40,44 @@ const StyledHeader = styled("div")`
     props.home ? "polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0 75%)" : null};
 `
 
+const ImageBackground = styled(BackgroundImage)`
+  background-position: top 20% center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  clip-path: ${props =>
+    props.home ? "polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0 75%)" : null};
+`
+
 const Header = ({ home }) => {
   const theme = useTheme()
   const image = useHero()
   console.log(image)
   return (
     <StyledHeader home={home} theme={theme}>
-      <nav
-        css={css`
-          align-content: flex-start;
-          margin-top: 0;
-        `}
+      <ConditionalWrapper
+        condition={home}
+        wrapper={children => (
+          <ImageBackground Tag="section" fluid={image.fluid} fadeIn="soft">
+            <Overlay>{children}</Overlay>
+          </ImageBackground>
+        )}
       >
-        <NavLink to="/" activeClassName="current-link">
-          Home
-        </NavLink>
-        <NavLink to="/about" activeClassName="current-link">
-          About
-        </NavLink>
-      </nav>
-      <div></div>
-
-      <Img fluid={image.fluid} />
+        <nav
+          css={css`
+            align-content: flex-start;
+            margin-top: 0;
+            padding: 1rem 0.5rem;
+          `}
+        >
+          <NavLink to="/" activeClassName="current-link">
+            Home
+          </NavLink>
+          <NavLink to="/about" activeClassName="current-link">
+            About
+          </NavLink>
+        </nav>
+      </ConditionalWrapper>
     </StyledHeader>
   )
 }
