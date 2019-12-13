@@ -4,8 +4,8 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { useTheme } from "emotion-theming"
 import useHero from "../hooks/useHero"
-import BackgroundImage from "gatsby-background-image"
 import ConditionalWrapper from "./ConditionalWrapper"
+import Hero from "./Hero"
 
 const NavLink = styled(Link)`
   text-shadow: none;
@@ -21,11 +21,7 @@ const NavLink = styled(Link)`
     font-weight: 500;
   }
 `
-const Overlay = styled("div")`
-  background-image: linear-gradient(to top, #00a0eecc 2rem, #ffffff00);
-  margin-top: 0;
-  height: 100%;
-`
+
 const StyledHeader = styled("div")`
   display: flex;
   background-color: ${props => props.theme.colors.primary};
@@ -40,28 +36,14 @@ const StyledHeader = styled("div")`
     props.home ? "polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0 75%)" : null};
 `
 
-const ImageBackground = styled(BackgroundImage)`
-  background-position: top 20% center;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  clip-path: ${props =>
-    props.home ? "polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0 75%)" : null};
-`
-
 const Header = ({ home }) => {
   const theme = useTheme()
   const image = useHero()
-  console.log(image)
   return (
     <StyledHeader home={home} theme={theme}>
       <ConditionalWrapper
         condition={home}
-        wrapper={children => (
-          <ImageBackground Tag="section" fluid={image.fluid} fadeIn="soft">
-            <Overlay>{children}</Overlay>
-          </ImageBackground>
-        )}
+        wrapper={children => <Hero image={image}>{children}</Hero>}
       >
         <nav
           css={css`

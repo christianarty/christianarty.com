@@ -8,8 +8,7 @@ const Card = styled("div")`
   border: 1px solid #ddd;
   border-radius: 2px;
   padding: 0 1rem;
-  box-shadow: 9px 9px 10px 0px rgba(0, 100, 255, 0.2);
-
+  box-shadow: 9px 9px 10px 0px rgba(37, 167, 244, 0.2);
   .subtitle {
     margin-top: 0;
   }

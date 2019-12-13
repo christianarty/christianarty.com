@@ -2,7 +2,7 @@ const emoji = require(`remark-emoji`)
 
 module.exports = {
   siteMetadata: {
-    title: `Christian Arty`,
+    title: `Christian Arty | My Personal Blog`,
     description: `My Personal Blog`,
     author: `Christian Arty`,
     github: "https://github.com/christianarty",

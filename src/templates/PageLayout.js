@@ -3,11 +3,13 @@ import PropTypes from "prop-types"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 import Header from "../components/Header"
 import { Global, css } from "@emotion/core"
+import SEO from "../components/GatsbySEO"
 const Layout = ({ children, home }) => {
-  const { author } = useSiteMetadata()
+  const { title, author } = useSiteMetadata()
 
   return (
     <>
+      <SEO title={title} />
       <div
         style={{
           display: "flex",
