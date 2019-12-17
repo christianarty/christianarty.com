@@ -4,18 +4,21 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { css } from "@emotion/core"
 import PageLayout from "../templates/PageLayout"
 import SEO from "../components/GatsbySEO"
+import { DiscussionEmbed } from "disqus-react"
 const BlogPostLayout = ({ data: { mdx }, pageContext: context }) => {
   const { next, prev } = context
-
+  const { title, date, slug } = mdx.frontmatter
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: { identifier: slug, title },
+  }
   return (
     <>
-      <SEO title={mdx.frontmatter.title} description={mdx.excerpt} />
+      <SEO title={title} description={mdx.excerpt} />
       <PageLayout>
         <div>
-          <h1 style={{ marginBottom: 0 }}>{mdx.frontmatter.title} </h1>
-          <h6 style={{ marginTop: 0, color: "#999999" }}>
-            {mdx.frontmatter.date}
-          </h6>
+          <h1 style={{ marginBottom: 0 }}>{title} </h1>
+          <h6 style={{ marginTop: 0, color: "#999999" }}>{date}</h6>
         </div>
         <MDXRenderer>{mdx.body}</MDXRenderer>
         <hr />
@@ -58,6 +61,7 @@ const BlogPostLayout = ({ data: { mdx }, pageContext: context }) => {
             </Link>
           )}
         </div>
+        <DiscussionEmbed {...disqusConfig} />
       </PageLayout>
     </>
   )
@@ -72,6 +76,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "dddd, MMMM Do YYYY")
+        slug
       }
     }
   }

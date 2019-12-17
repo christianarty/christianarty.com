@@ -58,6 +58,9 @@ const Header = ({ home }) => {
           <NavLink to="/about" activeClassName="current-link">
             About
           </NavLink>
+          <NavLink to="/contact" activeClassName="current-link">
+            Contact
+          </NavLink>
         </nav>
       </ConditionalWrapper>
     </StyledHeader>
