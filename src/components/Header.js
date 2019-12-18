@@ -9,7 +9,7 @@ import Hero from "./Hero"
 
 const NavLink = styled(Link)`
   text-shadow: none;
-  color: "#FFFFFF";
+  color: #ffffff;
   text-decoration: none;
   transition: all 0.1s ease-in-out;
   margin: 0 1rem 0 0;
