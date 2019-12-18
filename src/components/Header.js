@@ -9,7 +9,7 @@ import Hero from "./Hero"
 
 const NavLink = styled(Link)`
   text-shadow: none;
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors && props.theme.colors.secondary};
   text-decoration: none;
   transition: all 0.1s ease-in-out;
   margin: 0 1rem 0 0;
@@ -24,7 +24,8 @@ const NavLink = styled(Link)`
 
 const StyledHeader = styled("div")`
   display: flex;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props =>
+    props.theme.colors && props.theme.colors.primary};
   padding: 0;
   align-items: flex-start;
   justify-content: space-between;
