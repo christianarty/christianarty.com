@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import ContactInput from "../components/ContactInput"
 import PageLayout from "../templates/PageLayout"
+import { navigate } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
@@ -17,42 +17,42 @@ const StyledForm = styled("form")`
   & > div {
     margin: 1rem 1rem;
   }
-  & > input:last-of-type {
+  & > button {
     display: flex;
     border: 0.5px solid #ddd;
     border-radius: 5px;
-    width: 80%;
-    margin: 1rem 0;
+    padding: 0.25rem 2rem;
+    font-weight: bold;
+    text-align: center;
   }
 `
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const Contact = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [state, setState] = useState({})
 
-  const encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&")
-  }
-
-  const reset = () => {
-    setName("")
-    setEmail("")
-    setMessage("")
+  const handleChange = e => {
+    setState({ ...state, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
+    const form = e.target
     try {
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", name, email, message }),
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          ...state,
+        }),
       })
-      alert("Success!")
-      reset()
+      navigate(form.getAttribute("action"))
     } catch (error) {
       alert(error)
     }
@@ -62,33 +62,41 @@ const Contact = () => {
     <PageLayout>
       <h1>Contact Me!</h1>
       <StyledForm
-        name="contact-me"
+        name="contact"
         method="post"
-        netlify-honeypot="bot-field"
+        action="/thanks/"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="bot-field" />
-        <ContactInput
-          label={"Name"}
-          value={name}
-          type={"text"}
-          onChange={setName}
-        />
-        <ContactInput
-          label={"Email"}
-          value={email}
-          type={"email"}
-          onChange={setEmail}
-        />
-        <ContactInput
-          textarea
-          label={"Message"}
-          value={message}
-          type={"text"}
-          onChange={setMessage}
-        />
-        <input type="submit" value="Contact Me" />
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+
+        <div>
+          <label>
+            Name: <br />
+            <input type="text" name="name" onChange={handleChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Email: <br />
+            <input type="email" name="email" onChange={handleChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Message: <br />
+            <textarea type="text" name="message" onChange={handleChange} />
+          </label>
+        </div>
+
+        <button type="submit">Contact Me!</button>
       </StyledForm>
     </PageLayout>
   )
