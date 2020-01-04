@@ -57,6 +57,11 @@ const Layout = ({ children, home }) => {
           }}
         >
           <main style={{ flex: "1 0 auto" }}>{children}</main>
+          <hr
+            css={css`
+              margin: 1.5rem 0 0 0;
+            `}
+          />
           <footer style={{ flexShrink: 0 }}>
             {author} © {new Date().getFullYear()}, Built with
             {` `}
