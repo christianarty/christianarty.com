@@ -13,6 +13,7 @@ const nextConfig = {
 
     return config;
   },
+  target: "serverless",
 };
 
 module.exports = withPlugins(
@@ -20,7 +21,7 @@ module.exports = withPlugins(
     [
       optimizedImages,
       {
-        handleImages: ["png"],
+        handleImages: ["png", "jpg"],
         /* config for next-optimized-images */
       },
     ],
