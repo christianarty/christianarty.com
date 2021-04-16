@@ -35,15 +35,8 @@ function Home() {
         ></link>
         <link rel="manifest" href="/site.webmanifest"></link>
       </Head>
-      <Image
-        alt="Background of code"
-        src="/images/background.jpg"
-        layout="fill"
-        objectFit="cover"
-        className="filter blur-sm"
-      />
-      <article className="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover bg-gray-300">
-        <div className="max-w-5xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+      <article className="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover bg-gray-300 bg-computer bg-top">
+        <div className="max-w-5xl flex items-center h-auto lg:h-screen flex-wrap mx-auto lg:my-0 py-32">
           <div className="w-full lg:max-w-prose rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-6 lg:mx-0">
             <div className="p-4 md:p-12 text-center lg:text-left">
               <img
@@ -55,7 +48,7 @@ function Home() {
                   {siteMetadata.author}
                 </h1>
                 <a
-                  href="https://blog.christianarty.com"
+                  href={siteMetadata.blogLink}
                   className="bg-black hover:bg-gray-700 mt-8 text-white font-bold py-2 px-4 rounded-md cursor-pointer"
                 >
                   My Blog!
@@ -86,13 +79,13 @@ function Home() {
                 <strong>fastest user experience possible.</strong> Additionally,
                 with my communication skills, I am able to effectively
                 coordinate and discuss the technological aspects of a problem
-                amongst a team and present them toward stakeholders to identify
+                amongst a team and present them to stakeholders to identify
                 solutions that fit the business requirement. <br />
-                <p>
-                  If you want deliver an experience that both the customer will
-                  love and the developers would enjoy working with,{" "}
-                  <strong>let's connect and chat.</strong>
-                </p>
+              </p>
+              <p className="lg:prose-md prose-sm pt-4 ">
+                If you want deliver an experience that both the customer will
+                love and the developers will enjoy working with,{" "}
+                <strong>let's connect and chat.</strong>
               </p>
 
               <div className="pt-12 pb-8">
@@ -126,7 +119,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-4/12  z-10 -ml-2.5 ">
+          <div className="w-full lg:w-4/12  z-10 -ml-10 ">
             <img
               src={require("../../public/images/pictureOfMe.png")}
               className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"

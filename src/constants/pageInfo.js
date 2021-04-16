@@ -9,6 +9,7 @@ export const siteMetadata = {
   contactMe: "contact@christianarty.com",
   jobTitle: "Front End Engineer II @ AWS Marketplace",
   geoLocation: "New York, NY",
+  blogLink: "https://blog.christianarty.com",
   get seoDescription() {
     return (
       this.title +
