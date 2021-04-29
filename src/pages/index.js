@@ -48,7 +48,7 @@ function Home() {
         <div className="max-w-5xl flex items-center h-auto lg:h-screen flex-wrap mx-auto lg:my-0 py-32">
           <div className="w-full lg:max-w-prose rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-6 lg:mx-0">
             <div className="p-4 md:p-12 text-center lg:text-left">
-              <div className="block lg:hidden">
+              <div className="inline-block lg:hidden rounded-full">
                 <Image
                   alt={"Profile image of Christian Arty"}
                   height={192}
@@ -148,13 +148,13 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-4/12  z-10 -ml-10 ">
+          <div className="w-full lg:w-4/12 hidden lg:block z-10 -ml-10 ">
             <Image
               alt={"Profile image of Christian Arty"}
               src={"/images/pictureOfMe.png"}
               width={341}
               height={470}
-              className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
+              className="rounded-none lg:rounded-lg shadow-2xl "
               priority
             />
           </div>
