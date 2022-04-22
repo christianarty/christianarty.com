@@ -7,7 +7,7 @@ export const siteMetadata = {
     twitter: "https://twitter.com/christian_arty",
   },
   contactMe: "contact@christianarty.com",
-  jobTitle: "Front End Engineer II @ AWS Marketplace",
+  jobTitle: "Front End Engineer @ LinkedIn",
   geoLocation: "New York, NY",
   blogLink: "https://blog.christianarty.com",
   get seoDescription() {
