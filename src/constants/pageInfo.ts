@@ -1,4 +1,21 @@
-export const siteMetadata = {
+export interface SocialMedia {
+  linkedin: string;
+  github: string;
+  twitter: string;
+}
+
+export interface SiteMetadata {
+  author: string;
+  title: string;
+  socialMedia: SocialMedia;
+  contactMe: string;
+  jobTitle: string;
+  geoLocation: string;
+  blogLink: string;
+  readonly seoDescription: string;
+}
+
+export const siteMetadata: SiteMetadata = {
   author: "Christian Arty",
   title: "Christian Arty - Front End Engineer",
   socialMedia: {
@@ -17,3 +34,4 @@ export const siteMetadata = {
     );
   },
 };
+

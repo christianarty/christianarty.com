@@ -8,7 +8,8 @@ import {
   IoLogoLinkedin,
   IoLogoTwitter,
 } from "react-icons/io5";
-function Home() {
+
+export default function Home() {
   return (
     <>
       <Head>
@@ -40,8 +41,8 @@ function Home() {
           <Image
             alt="Background image of computer programming"
             src="/images/background.png"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             priority
           />
         </div>
@@ -120,7 +121,6 @@ function Home() {
                   <IoLogoLinkedin
                     className="fill-current hover:text-blue-600"
                     size="1.5rem"
-                    alt="LinkedIn Icon"
                   />
                 </a>
                 <a
@@ -131,7 +131,6 @@ function Home() {
                   <IoLogoGithub
                     className="fill-current hover:text-blue-600"
                     size="1.5rem"
-                    alt="Github Icon"
                   />
                 </a>
                 <a
@@ -142,7 +141,6 @@ function Home() {
                   <IoLogoTwitter
                     className="fill-current hover:text-blue-600"
                     size="1.5rem"
-                    alt="Twitter Icon"
                   />
                 </a>
               </div>
@@ -163,5 +161,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;
