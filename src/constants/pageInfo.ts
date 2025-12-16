@@ -115,8 +115,8 @@ export const experiences: Experience[] = [
         endDate: "Mar 2023",
         duration: "1 yr 1 mo",
         achievements: [
-          "Reduced the company-wide redundant dependency by building the migration tooling and mocking infrastructure needed to move off our legacy in-house data layer",
-          "Conducted the company-wide redundant dependency cleanup, reducing developer install times by 50% and streamlined workflows across the organization",
+          "Accelerated the adoption of GraphQL by building the migration tooling and mocking infrastructure needed to move off our legacy in-house data layer.",
+          "Unblocked the company-wide migration to Yarn 3 by redesigning dependency management tooling for compatibility; this cut developer install times by 50% and streamlined workflows across the organization",
         ],
       },
     ],
@@ -143,7 +143,7 @@ export const experiences: Experience[] = [
         achievements: [
           "Worked on the Private Offer Experiences team, where I owned the user journey that allows sellers to create exclusive, custom-priced deals for specific buyers",
           "Guided implementation of a new revenue-related feature for our platform and coordinated with various stakeholders and teams regarding design, implementation, and delivery",
-          "Analyzed the codebase, spotted developer inefficiencies, and optimized the developer velocity for new required features by 30%, all within the first month of hire",
+          "Analyzed the codebase, spotted developer inefficiencies, and optimized the developer velocity for new required features by 90%, all within the first month of hire",
           "Incrementally rewritten our E2E test suite by creating a reusable and well-tested testing suite for my team, which includes how they unit test & how they write e2e tests, improving our reliability by 40%",
         ],
       },
@@ -201,7 +201,7 @@ export const experiences: Experience[] = [
         achievements: [
           "Re-platformed their legacy GWT front-end to a modern React front-end platform",
           "Controlled and wrote the test suite for their custom components using Enzyme and Jest",
-          "Increase developer productivity by 80% by introducing Storybook to develop their components in isolation and created a standard of how components are developed to ensure discoverability",
+          "Increase developer productivity by 80% by introducing Storybook and a shared developer environment to develop their components in isolation and created a standard of how components are developed",
         ],
       },
     ],
