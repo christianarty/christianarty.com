@@ -259,7 +259,7 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest"></link>
       </Head>
 
-      <main className="font-sans antialiased text-gray-900 leading-normal bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <main className="font-sans antialiased text-gray-900 leading-normal bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 max-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Animated background gradient */}
