@@ -91,7 +91,7 @@ function ExperienceCard({ experience, index }: ExperienceCardProps) {
                 <IoBriefcaseOutline className="text-blue-600" size="1.75rem" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
+                <h3 className="text-2xl font-bold pb-1 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
                   {experience.company}
                 </h3>
                 <p className="text-sm text-gray-500 mb-1">
@@ -195,7 +195,7 @@ function EducationCard({ education }: EducationCardProps) {
                 <IoSchoolOutline className="text-emerald-600" size="1.75rem" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
+                <h3 className="text-2xl font-bold pb-1 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
                   {education.institution}
                 </h3>
                 <p className="text-lg font-semibold text-gray-700 mb-2">
@@ -259,7 +259,7 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest"></link>
       </Head>
 
-      <main className="font-sans antialiased text-gray-900 leading-normal bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 max-h-screen">
+      <main className="font-sans antialiased text-gray-900 leading-normal bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex-1 w-full">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Animated background gradient */}
@@ -283,7 +283,7 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-5xl lg:text-6xl font-bold mb-6 pb-2 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent leading-tight">
                   {siteMetadata.author}
                 </h1>
 
@@ -369,10 +369,10 @@ export default function Home() {
         </section>
 
         {/* Timeline Section */}
-        <section className="relative py-24 bg-white">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="relative py-24 bg-white min-h-screen w-full">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4">
+              <h2 className="text-4xl lg:text-5xl font-bold pb-2 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4">
                 My Journey
               </h2>
               <p className="text-gray-500 text-lg">
@@ -404,8 +404,8 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-12">
-          <div className="max-w-6xl mx-auto px-6 text-center">
+        <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-12 w-full">
+          <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="flex justify-center gap-6 mb-6">
               <a
                 href={siteMetadata.socialMedia.linkedin}
