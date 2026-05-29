@@ -239,6 +239,17 @@ export default function Home() {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content={siteMetadata.seoDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://www.christianarty.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.christianarty.com/" />
+        <meta property="og:title" content={siteMetadata.title} />
+        <meta property="og:description" content={siteMetadata.seoDescription} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={siteMetadata.title} />
+        <meta
+          name="twitter:description"
+          content={siteMetadata.seoDescription}
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
